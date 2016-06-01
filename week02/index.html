@@ -6,38 +6,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <mata charset="utf-8"/>
+  <mata charset=utf-8>
   <title>ORDER</title>
   <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-<header>
-  <h1>YOYR ORDER</h1>
-  <table>
-    <tr>
-      <td>ITEMS</td>
-      <td>DETAILS</td>
-      <td>PRICE</td>
-      <td>DELIVERY</td>
-    </tr>
-    <tr>
-      <td>2 documents</td>
-      <td>2 languages</td>
-      <td>$696.06</td>
-      <td>48 hours*</td>
-    </tr>
-  </table>
-  <button>PLASE ORDER</button>
-  <button>PRINT A QUOTE</button>
-  <aside>
-    <h1>HELP CENTER<h1>
-    <p>If you need assistance while placing your order, contact one of our belowed Project Manager by phone or email.</p>
-    <a href="tel:+971(0)555-555">+971(0)555 555</a>
-    <a href="mailto:help@qtest.com">help@qtest.com</a>
-  </aside>
-  </header>
+<header class=nav-buttons>
+  <a class=go-back role=button href=/>GO BACK</a>
+  <a class=logo>
+    <img href=/ alt=Logo>
+  </a>
+  <a class=sign-in role=button href=/>SIGN IN</a>
+</header>
 
-  <main>
+<main>
+<form>
+<section class=order>
+  <div class=table-wrapper>
+    <h1>YOYR ORDER</h1>
+    <table class=order-details>
+      <tr>
+        <td>ITEMS
+        <td>DETAILS
+        <td>PRICE
+        <td>DELIVERY
+      <tr>
+        <td>2 documents
+        <td>2 languages
+        <td><data value=USD:696.06>$696.06</data>
+        <td>48 hours*
+    </table>
+  </div>
+
+  <fieldset class=order-buttons>
+    <button class=plase-order>PLASE ORDER</button>
+    <button class=print-quote>PRINT A QUOTE</button>
+  </fieldset>
+  
+    <section>
+      <h1>HELP CENTER<h1>
+      <p>If you need assistance while placing your order, contact one of our belowed Project Manager by phone or email.</p>
+      <a href=tel:+971(0)555-555>+971(0)555 555</a>
+      <a href=mailto:help@qtest.com>help@qtest.com</a>
+    </section>
+  </section>
+
+
   <nav>
   <h1>SELECT WHAT YOU WHANT TO TRANSLATE</h1>
     <ul>
@@ -70,38 +84,38 @@
   <section>
     <h2>Choose your language pairings</h2>
 
-    <label for="unittype">FROM</label>
-    <select id="from" name="unittype">
-      <option value="1"> Arabic </option>
-      <option value="2"> Kurdish </option>
-      <option value="3" selected> English </option>
-      <option value="4"> Ukranian </option>
-      <option value="5"> Russian </option>
+    <label for=unittype>FROM</label>
+    <select id=from name=unittype>
+      <option value=1> Arabic </option>
+      <option value=2> Kurdish </option>
+      <option value=3 selected> English </option>
+      <option value=4> Ukranian </option>
+      <option value=5> Russian </option>
     </select><br>
 
-    <label for="unittype">TO</label>
-    <select id="to" name="unittype">
-      <option value="1" selected> Arabic</option>
-      <option value="2"> Kurdish </option>
-      <option value="3"> English </option>
-      <option value="4"> Ukranian </option>
-      <option value="5"> Russian </option>
+    <label for=unittype>TO</label>
+    <select id=to name=unittype>
+      <option value=1 selected> Arabic</option>
+      <option value=2> Kurdish </option>
+      <option value=3> English </option>
+      <option value=4> Ukranian </option>
+      <option value=5> Russian </option>
     </select>
 
-    <select id="to" name="unittype">
-      <option value="1"> Arabic</option>
-      <option value="2" selected> Kurdish </option>
-      <option value="3"> English </option>
-      <option value="4"> Ukranian </option>
-      <option value="5"> Russian </option>
+    <select id=to name=unittype>
+      <option value=1> Arabic</option>
+      <option value=2 selected> Kurdish </option>
+      <option value=3> English </option>
+      <option value=4> Ukranian </option>
+      <option value=5> Russian </option>
     </select>
 
-    <select id="add" name="unittype">
-      <option value="1"> Arabic</option>
-      <option value="2"> Kurdish </option>
-      <option value="3"> English </option>
-      <option value="4"> Ukranian </option>
-      <option value="5"> Russian </option>
+    <select id=add name=unittype>
+      <option value=1> Arabic</option>
+      <option value=2> Kurdish </option>
+      <option value=3> English </option>
+      <option value=4> Ukranian </option>
+      <option value=5> Russian </option>
     </select>
 
   </section>
@@ -115,33 +129,37 @@
   <!-- 4 -->
   <section>
     <h2>Tell us how urgent thos job is</h2>
-    <input type="range">
-      <table class="range-table">
+    <input type=range>
+      <table class=range-table>
       <tr>
-        <td>I GET TIME</td>
-        <td>AVERAGE</td>
-        <td>YESTERDAY</td>
+        <td>I GET TIME
+        <td>AVERAGE
+        <td>YESTERDAY
       </tr>
       </table>
       <aside>
         <h3>TIME LINE INFO</h3>
-        <p>With an <a href="/">AVERAGE</a> timeline set up? our expert translator can take a<br> 
+        <p>With an <a href=/>AVERAGE</a> timeline set up? our expert translator can take a<br> 
         reasonable amoumt of time perfecting your translation</p>
       </aside>
   </section>
   <!-- 5 -->
   <section>
     <h2>Sign up and choose a payment method</h2>
-    <p>Already have account with us?<a href="/"><u>sign in</u></a></p>
+    <p>Already have account with us?<a href=/><u>sign in</u></a></p>
 
     <form>
-      FULL NAME          <br><input type="text"  name="full-name"    value="Mathieu Mayer"><br>
-      EMAIL ADRESS       <br><input type="email" name="email-adress" autocomplete="mathieu.mm@me.com">
-      CHOOSE A PASSWORD: <input type="password" autocomplete=""><br>
+      FULL NAME          <br><input type=text  name=full-name value=Mathieu Mayer><br>
+      EMAIL ADRESS       <br><input type=email name=email-adress autocomplete=mathieu.mm@me.com>
+      CHOOSE A PASSWORD: <input type=password autocomplete=""><br>
 <!--     <input type="submit" value="Submit"> -->
     </form>
   </section>
+  </form>
   </main>
+  <footer>
+    
+  </footer>
 
 </body>
 </html>

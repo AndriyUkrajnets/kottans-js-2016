@@ -1,15 +1,94 @@
-/*body
+
+body
 {
     margin: 0;
-    font-size: 200px;
-    color: #fff;
 }
 
-section
+a, fieldset, button
 {
-    height: 100vh;
-    background-attachment: fixed;
+    all: unset;
+}
+
+fieldset
+{
+    all: unset;
+}
+/***/
+html
+{
+    background: #D3D3D3
+}
+
+body
+{
+    max-width: 940;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-buttons
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+}
+
+.order-details
+{
+    display: inline-table;
+}
+
+.order-buttons
+{
+    display: inline-block;
+}
+
+.order-buttons button
+{
+    display: block;
+}
+/*@use postcss-nested;
+@use postcss-media-minmax;
+
+@media (width >= 800px)
+{
+    tbody
+    {
+        tr { display: table-cell }
+        th { display: none }
+        td { display: inline }
+
+        text-align: center;
+        display: table-row;
+    }
+}
+
+@media (width <= 800px)
+{
+    thead { display: none }
+    th { text-align: left }
 }*/
+
+body
+{
+    min-width: 320px;
+}
+
+table
+{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+}
+
+tbody:nth-child(even)
+{
+    outline: 1px dashed red;
+}
 
 input[type=range]{
     /* fix for FF unable to apply focus style bug  */
