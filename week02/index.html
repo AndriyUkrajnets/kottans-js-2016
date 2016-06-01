@@ -1,3 +1,8 @@
+<!-- Сверстать формочку
+аплоад файлов не делать
+тут и табличка (сверху), и radio инпут, и range, к паролю можете прикрутить meter, взять какой-то адекватный плагин (написать самому?) для ввода номер карточки. неправильная форма (или без чекбокса) не сабмититься (кнопка disabled). в идеале, чтобы работало по максимуму без джс.
+Очень желательно воспользоваться scss/less/postcss/stylus, применить flexbox, autoprefixer -->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -64,7 +69,41 @@
   <!-- 2 -->
   <section>
     <h2>Choose your language pairings</h2>
-    
+
+    <label for="unittype">FROM</label>
+    <select id="from" name="unittype">
+      <option value="1"> Arabic </option>
+      <option value="2"> Kurdish </option>
+      <option value="3" selected> English </option>
+      <option value="4"> Ukranian </option>
+      <option value="5"> Russian </option>
+    </select><br>
+
+    <label for="unittype">TO</label>
+    <select id="to" name="unittype">
+      <option value="1" selected> Arabic</option>
+      <option value="2"> Kurdish </option>
+      <option value="3"> English </option>
+      <option value="4"> Ukranian </option>
+      <option value="5"> Russian </option>
+    </select>
+
+    <select id="to" name="unittype">
+      <option value="1"> Arabic</option>
+      <option value="2" selected> Kurdish </option>
+      <option value="3"> English </option>
+      <option value="4"> Ukranian </option>
+      <option value="5"> Russian </option>
+    </select>
+
+    <select id="add" name="unittype">
+      <option value="1"> Arabic</option>
+      <option value="2"> Kurdish </option>
+      <option value="3"> English </option>
+      <option value="4"> Ukranian </option>
+      <option value="5"> Russian </option>
+    </select>
+
   </section>
   <!-- 3 -->
   <section>
@@ -98,7 +137,7 @@
     <form>
       FULL NAME          <br><input type="text"  name="full-name"    value="Mathieu Mayer"><br>
       EMAIL ADRESS       <br><input type="email" name="email-adress" autocomplete="mathieu.mm@me.com">
-      CHOOSE A PASSWORD: <br><input type="password" autocomplete=""><br>
+      CHOOSE A PASSWORD: <input type="password" autocomplete=""><br>
 <!--     <input type="submit" value="Submit"> -->
     </form>
   </section>
