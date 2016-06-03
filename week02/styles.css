@@ -16,16 +16,72 @@ fieldset
 /***/
 html
 {
-    background: #D3D3D3
+    /*background: #D3D3D3;*/
+    background: #DCDCDC
 }
 
 body
 {
     max-width: 940;
     padding-left: 20px;
-    padding-right: 20px;
+/*    padding-right: 20px;*/
     margin-left: auto;
     margin-right: auto;
+}
+
+form
+{
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #A9A9A9;
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.go-back, .sign-in{
+    background-color: #DCDCDC;
+    color: #949fc0;
+    padding: 15px 40px;
+    border: 2px solid #A9A9A9;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+}
+
+.order-wrapper{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #A9A9A9;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 180px;
+}
+
+.order{
+    
+/*    border-bottom: 2px solid;*/
+    border-color: #A9A9A9;
+}
+
+.table-wrapper{
+    width: 50%;
+    float: left;
+}
+
+.table-wrapper h1{
+    padding-left: 30px;
+}
+
+.table-wrapper td{
+    font-weight: 600;
 }
 
 .nav-buttons
@@ -34,6 +90,9 @@ body
     align-items: center;
     justify-content: space-between;
     height: 200px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
 }
 
 .order-details
@@ -44,37 +103,67 @@ body
 .order-buttons
 {
     display: inline-block;
+    width: 20%;
+    padding-top: 70px;
+}
+
+.help-center{
+    width: 27%;
+    height: 180px;
+    float: right;
+    padding-left: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #A9A9A9;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.help-center a{
+    padding-right: 14px;
+    font-size: 12px;
 }
 
 .order-buttons button
 {
     display: block;
 }
-/*@use postcss-nested;
-@use postcss-media-minmax;
 
-@media (width >= 800px)
-{
-    tbody
-    {
-        tr { display: table-cell }
-        th { display: none }
-        td { display: inline }
-
-        text-align: center;
-        display: table-row;
-    }
+.plase-order{
+    background: #40E0D0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 21px;
+    padding-right: 21px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 4px;
+    letter-spacing: 2.1px;
 }
 
-@media (width <= 800px)
-{
-    thead { display: none }
-    th { text-align: left }
-}*/
+.print-quote{
+    background: #40E0D0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 4px;
+    letter-spacing: 1px;
+}
 
 body
 {
     min-width: 320px;
+    counter-reset: num;
+    font-family: Calibri;
+    color:  #696969;
 }
 
 table
@@ -83,17 +172,83 @@ table
     overflow: hidden;
     width: 100%;
     max-width: 600px;
+    padding-left: 30px;
 }
 
-tbody:nth-child(even)
-{
-    outline: 1px dashed red;
+.p-font-small{
+    font-size: 12px;
+    color:  #A9A9A9;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.select-nav{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 5%;
+
+}
+
+.text-center{
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A9A9A9;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-bottom: 20px;
+}
+
+.translate-option input[type="radio"]{
+    border: none;
+    width: 25px;
+    height: 25px;
+    background: url(images/website.png) left center no-repeat;    
+    background-size: 20px; 
+}
+.translate-option input[type="radio"]:checked {
+    background: url(images/website_checked.png) left center no-repeat;
+}
+
+h2:before {
+  counter-increment: num;
+  content: counter(num);
+}
+
+.upload-nav, .language-pairings-nav, .desired-tone-nav, .how-urgent, .payment-method-nav{
+    padding-left: 30px;
+}
+
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    background-color: #D3D3D3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 2px;
+    border: #A9A9A9;
+    font-size: 13px;
+}
+
+.file-upload input.file-input{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0); 
 }
 
 input[type=range]{
     /* fix for FF unable to apply focus style bug  */
     border: 1px solid white; 
-
     /*required for proper track sizing in FF*/
     width: 300px;
 }

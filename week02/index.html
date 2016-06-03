@@ -4,7 +4,7 @@
 Очень желательно воспользоваться scss/less/postcss/stylus, применить flexbox, autoprefixer -->
 
 <!doctype html>
-<html lang="en">
+<html lang=en>
 <head>
   <mata charset=utf-8>
   <title>ORDER</title>
@@ -12,59 +12,66 @@
 </head>
 <body>
 <header class=nav-buttons>
-  <a class=go-back role=button href=/>GO BACK</a>
-  <a class=logo>
-    <img href=/ alt=Logo>
-  </a>
-  <a class=sign-in role=button href=/>SIGN IN</a>
+  <a href=/ class=go-back role=button>GO BACK</a>
+  <a class=logo><img alt=Logo></a>
+  <a href=/ class=sign-in role=button >SIGN IN</a>
 </header>
 
 <main>
 <form>
 <section class=order>
-  <div class=table-wrapper>
-    <h1>YOYR ORDER</h1>
-    <table class=order-details>
-      <tr>
-        <td>ITEMS
-        <td>DETAILS
-        <td>PRICE
-        <td>DELIVERY
-      <tr>
-        <td>2 documents
-        <td>2 languages
-        <td><data value=USD:696.06>$696.06</data>
-        <td>48 hours*
-    </table>
+  <div class=order-wrapper>
+    <div class=table-wrapper>
+      <h1>YOUR ORDER</h1>
+      <table class=order-details>
+        <tr>
+          <td>ITEMS
+          <td>DETAILS
+          <td>PRICE
+          <td>DELIVERY
+        <tr>
+          <td>2 documents
+          <td>2 languages
+          <td><data value=USD:696.06>$696.06</data>
+          <td>48 hours*
+      </table>
+    </div>
+
+    <fieldset class=order-buttons>
+      <button class=plase-order>PLASE ORDER</button>
+      <button class=print-quote>PRINT A QUOTE</button>
+    </fieldset>
+
+    <div class=help-center>
+    <h1>HELP CENTER<h1>
+    <p class=p-font-small>If you need assistance while placing your order, contact one of our belowed Project Manager by phone or email.</p>
+    <a href=tel:+971(0)555-555>+971(0)555 555</a>
+    <a href=mailto:help@qtest.com>help@qtest.com</a>
+  </div>
   </div>
 
-  <fieldset class=order-buttons>
-    <button class=plase-order>PLASE ORDER</button>
-    <button class=print-quote>PRINT A QUOTE</button>
-  </fieldset>
-  
-    <section>
-      <h1>HELP CENTER<h1>
-      <p>If you need assistance while placing your order, contact one of our belowed Project Manager by phone or email.</p>
-      <a href=tel:+971(0)555-555>+971(0)555 555</a>
-      <a href=mailto:help@qtest.com>help@qtest.com</a>
-    </section>
+</section>
+  <section class=select-nav>
+    <h1 class=text-center>SELECT WHAT YOU WHANT TO TRANSLATE</h1>
+      <div class="translate-option">
+        <input id="website" type="radio" name="what-to-translate" value="website" />
+          <label for="website">Website</label>
+        <input id="documents" type="radio" name="what-to-translate" value="documents" />
+          <label for="documents">Documents</label>
+        <input id="social-account" type="radio" name="what-to-translate" value="social-account" />
+          <label for="social-account">Social account</label>
+      </div>
   </section>
 
-
-  <nav>
-  <h1>SELECT WHAT YOU WHANT TO TRANSLATE</h1>
-    <ul>
-      <li>Website
-      <li>Documents
-      <li>Social Account
-    </ul>
-  </nav>
-
-  <section>
+  <section class=upload-nav>
   <!-- 1 -->
   <h2>Upload your documents</h2>
-  <button>Upload a new file</button>
+  <!-- <input type="file" name="file" id="file" class="inputfile" />
+    <label for="file">Upload a new file</label> -->
+
+  <button class="file-upload">            
+  <input type="file" class="file-input">Upload a new file</button>
+  <!-- <button>Upload a new file</button> -->
   <table>
     <tr>
       <td>FILE NAME</td>
@@ -81,9 +88,8 @@
   </table>
   </section>
   <!-- 2 -->
-  <section>
+  <section class=language-pairings-nav>
     <h2>Choose your language pairings</h2>
-
     <label for=unittype>FROM</label>
     <select id=from name=unittype>
       <option value=1> Arabic </option>
@@ -120,15 +126,15 @@
 
   </section>
   <!-- 3 -->
-  <section>
+  <section class=desired-tone-nav>
     <h2>Select your desired tone</h2>
     <button>Friendly</button>
     <button>Corporate/Pro</button>
     <button>Media/Format</button>
   </section>
   <!-- 4 -->
-  <section>
-    <h2>Tell us how urgent thos job is</h2>
+  <section class=how-urgent>
+    <h2>Tell us how urgent this job is</h2>
     <input type=range>
       <table class=range-table>
       <tr>
@@ -144,7 +150,7 @@
       </aside>
   </section>
   <!-- 5 -->
-  <section>
+  <section class=payment-method-nav>
     <h2>Sign up and choose a payment method</h2>
     <p>Already have account with us?<a href=/><u>sign in</u></a></p>
 
