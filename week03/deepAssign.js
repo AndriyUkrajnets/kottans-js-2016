@@ -1,30 +1,40 @@
-function deepAssign(target, source) {
-  "use strict"
+(function()
+{
+    "use strict"
 
-  function isObject(value) {
-    return value != null && typeof value === 'object'
-    }
+    if (typeof Object.deepAssign == "function") return
 
-  var to = Object(target)
-  for ( var index = 1; index < arguments.length ;){
-    
-    var from = arguments[index++]
-    var keysOnly = Object.keys(Object(from));
-    for(var key = 0; key < keysOnly.length; ){
-      var isObjectTest = from[keysOnly[key++]]
-      if(isObject(isObjectTest)) {
-          if( keysOnly[key] in to){
-            to[keysOnly[key]] = deepAssign(to[keysOnly[key]], from[keysOnly[key]])
-          }else{
-            to[keysOnly[key]] = deepAssign({}, from[keysOnly[key]])
-         }
-      }else{
-        to[keysOnly[key]] = from[keysOnly[key]]
+    var isEnumerable = {}.propertyIsEnumerable
+
+    function isObject(value){
+      return value != null && typeof value === 'object'
       }
-    }
-  }
-  return to
-}
 
-a={a:1,b:"in a string"};b={c:"in b string",d:{x:3}, e:{f:"in b second string", g:{h:4, i:"in b third string"}}};
-console.log(deepAssign(a,b))
+    Object.defineProperty(Object, "deepAssign",{
+        value: function deepAssign(target, sources){
+            if (target == null) throw new TypeError
+
+            var to = Object(target)
+
+            for (var index = 1; index < arguments.length ;){
+              var from = arguments[index++]
+
+              if(from === isObject(from)){
+                Object.keys(Object(from)).forEach(function(key){
+                  if (isEnumerable.call(from, key))
+                  to[key] = deepAssign(from[key], from[key])
+                })
+              }
+              else{
+                Object.keys(Object(from)).forEach(function(key){
+                    if (isEnumerable.call(from, key))
+                        to[key] = from[key]
+                })
+              }
+            }
+          return to
+        },
+        writable: true,
+        configurable: true
+    })
+})()
