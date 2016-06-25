@@ -1,34 +1,72 @@
 "use strict"
 
 const PostHTML = require("posthtml")
-const html =
+const html = 
+`<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <p>see the effect</p>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-9 col-md-7" style="background-color:red;">.col-xs-9 .col-md-7</div>
+    <div class="col-xs-3 col-md-5" style="background-color:lavender;">.col-xs-3 .col-md-5</div>
+  </div>
+  <div class="mix">
+    <div class="js-tets"></div>
+    <div class="js-first js-second"></div>
+    <div class="col-lg-12" ></div>
+    <div class="col-lg-12 js-tets" ></div>
+    <div class="collll-lg-12" ></div>
+    <div class="col-xs-11" ></div>
+    <div class="col-xs-111" ></div>
+    <div class="col-sm-push-1" ></div>
+    <div class="col-lg-offset-11" ></div>
+    <div class="col-lg-offffset-11" ></div>
+  </div>
+</div>
 `
-<a href="/something">Somehting</a>
-<a href="https://kottans.org">Kottans</a>
-`
-const attrs = { href: true, target: false, rel: false }
-const links = ["a", "area"].map(tag =>
-{
-  return{tag, attrs}
-})
 
-const isAbsolute = RegExp("^(https?)?://")
-const plugin = tree => tree
-  .match(links, link =>
-    {
-      let href = link.attrs.href
-      if(isAbsolute.test(href))
-      {
-        link.attrs.target = "_blank"
-        link.attrs.rel = "external"
+const plugin = tree => {
+  tree.match({attrs: {class: true}}, node => {
+
+    const bootstrapClass = /^col\-(xs|sm|md|lg)(\-(push|pull|offset))?-\d+/i
+    const jsInClass = /^js\-\w+/i
+
+    let classesNew = node.attrs.class.split(" ");
+    classesNew = 
+    classesNew.reduce( ( before, current ) => {
+      let len = before.datajs.length;
+      if (jsInClass.test(current)) {
+        let afterJs = 
+        /-\w*/.exec(current);
+        before.datajs[len] = afterJs[0].substring(1);
+      } else if (!bootstrapClass.test(current)) {
+        before.class[len] = current        
       }
-      return link
-    })
+        return before
+      }, {datajs: [], class: []}
+      )
 
-PostHTML([plugin])
-.process(html)
-.then(result =>
-  {
-    console.log(result.html)
+      if (classesNew.datajs.length > 0) {
+        node.attrs['data-js'] = classesNew.datajs.join(" ")
+      }
+
+      if (classesNew.class.length > 0) {
+        node.attrs.class = classesNew.class.join(" ")
+      } else {
+        delete node.attrs.class
+      }   
+
+    return node       
   })
-.catch(console.error)
+}
+
+PostHTML()
+  .use(plugin)
+  .process(html)
+  .then( result => {
+      console.log(result.html)
+    })
