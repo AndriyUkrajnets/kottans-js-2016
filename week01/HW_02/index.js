@@ -34,15 +34,17 @@ const plugin = tree => {
 
     const bootstrapClass = /^col\-(xs|sm|md|lg)(\-(push|pull|offset))?-\d+/i
     const jsInClass = /^js\-\w+/i
-
     let classesNew = node.attrs.class.split(" ");
     classesNew = 
     classesNew.reduce( ( before, current ) => {
+
       let len = before.datajs.length;
       if (jsInClass.test(current)) {
         let afterJs = 
         /-\w*/.exec(current);
+        console.log("afterJs: " + afterJs)
         before.datajs[len] = afterJs[0].substring(1);
+        console.log("before.datajs[len]: " + before.datajs[len])
       } else if (!bootstrapClass.test(current)) {
         before.class[len] = current        
       }
