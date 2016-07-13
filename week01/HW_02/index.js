@@ -36,18 +36,25 @@ const plugin = tree => {
     const jsInClass = /^js\-\w+/i
     let classesNew = node.attrs.class.split(" ");
     classesNew = 
-    classesNew.reduce( ( before, current ) => {
+    classesNew.reduce(( before, current ) => {
 
+      /*console.log("datajs: " + datajs)*/
+      /*console.log("before.datajs: " + before.datajs)
+      console.log("before.datajs.length:  " + before.datajs.length)*/
+      /*console.log("current: " + current)*/
+      /*console.log("before: " + before)*/
       let len = before.datajs.length;
       if (jsInClass.test(current)) {
+
         let afterJs = 
         /-\w*/.exec(current);
-        console.log("afterJs: " + afterJs)
+        /*console.log("afterJs: " + afterJs)*/
         before.datajs[len] = afterJs[0].substring(1);
-        console.log("before.datajs[len]: " + before.datajs[len])
+        /*console.log("before.datajs[len]: " + before.datajs[len])*/
       } else if (!bootstrapClass.test(current)) {
         before.class[len] = current        
       }
+        /*console.log("before: " + before)*/
         return before
       }, {datajs: [], class: []}
       )
